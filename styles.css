@@ -1,0 +1,863 @@
+/* =============================================
+   NovaByte - Main Stylesheet
+   This is the ONE CSS file that styles ALL
+   4 pages of the website. Every page links
+   to this file using:
+   <link rel="stylesheet" href="css/styles.css">
+   ============================================= */
+
+/* This loads the two fonts we use from Google.
+   Playfair Display = fancy headings font
+   DM Sans = clean readable body font
+   If there is no internet, the browser will
+   just use a default font instead — that is fine */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;600&display=swap');
+
+
+/* =============================================
+   COLOUR VARIABLES
+   Instead of typing the same colour code over
+   and over, we save them here as variables.
+   To use one you write: var(--color-green)
+   ============================================= */
+:root {
+  --color-black:    #0D0D0D;   /* very dark — used for header and footer */
+  --color-green:    #00C896;   /* bright teal-green — our brand colour */
+  --color-white:    #FFFFFF;   /* pure white */
+  --color-offwhite: #F5F5F0;   /* slightly warm white — page background */
+  --color-grey:     #6B6B6B;   /* medium grey — paragraph text */
+  --color-border:   #E0E0D8;   /* light grey — card borders and dividers */
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', Arial, sans-serif;
+}
+
+
+/* =============================================
+   RESET
+   Browsers add their own default spacing.
+   This removes all of that so we start clean.
+   ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =============================================
+   BASE BODY STYLES
+   ============================================= */
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: var(--color-offwhite);
+  color: var(--color-grey);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.2rem; }
+
+p { margin-bottom: 1rem; }
+
+
+/* =============================================
+   CONTAINER
+   Centres content and limits max width
+   ============================================= */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn-green {
+  display: inline-block;
+  background-color: var(--color-green);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  border: 2px solid var(--color-green);
+  cursor: pointer;
+}
+
+.btn-green:hover {
+  background-color: #009E78;
+  border-color: #009E78;
+}
+
+.btn-outline {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  border: 2px solid var(--color-white);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.btn-small {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  border: 2px solid var(--color-black);
+}
+
+.btn-small:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+
+/* =============================================
+   HEADER AND NAVIGATION
+   Sticky header — stays at top when scrolling.
+   Flexbox puts logo left, links right.
+   ============================================= */
+.site-header {
+  background-color: var(--color-black);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-white);
+}
+
+.nav-logo span {
+  color: var(--color-green);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+}
+
+.nav-links a:hover {
+  color: var(--color-white);
+}
+
+/* The current page link turns green */
+.nav-links a.active {
+  color: var(--color-green);
+}
+
+.nav-cta {
+  background-color: var(--color-green);
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+}
+
+.nav-cta:hover {
+  background-color: #009E78;
+}
+
+
+/* =============================================
+   FOOTER
+   Three columns using flexbox
+   ============================================= */
+.site-footer {
+  background-color: var(--color-black);
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand {
+  flex: 2;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.footer-col {
+  flex: 1;
+}
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 1rem;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a:hover {
+  color: var(--color-white);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+}
+
+
+/* =============================================
+   SECTION UTILITIES
+   .section = adds padding above and below
+   .section-white = white background
+   .section-dark = black background
+   ============================================= */
+.section {
+  padding: 5rem 0;
+}
+
+.section-white {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  padding: 5rem 0;
+}
+
+.section-dark {
+  background-color: var(--color-black);
+  padding: 5rem 0;
+}
+
+.section-dark h2 { color: var(--color-white); }
+.section-dark p  { color: rgba(255,255,255,0.6); }
+
+/* Small green uppercase label above headings */
+.section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 0.5rem;
+}
+
+/* Subtext below a heading */
+.section-sub {
+  color: var(--color-grey);
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  max-width: 55ch;
+}
+
+
+/* =============================================
+   HOME PAGE — HERO
+   Dark section with text on the left
+   ============================================= */
+.hero {
+  background-color: #1A1A2E;
+  padding: 7rem 0;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  border: 1px solid rgba(0,200,150,0.4);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+}
+
+/* The word "smarter" is italicised and green */
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-green);
+}
+
+.hero p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+
+/* =============================================
+   HOME PAGE — FEATURES STRIP
+   Three boxes side by side, white background
+   ============================================= */
+.features {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  padding: 3rem 0;
+}
+
+.features-grid {
+  display: flex;
+  gap: 0;
+}
+
+.feature-item {
+  flex: 1;
+  text-align: center;
+  padding: 2rem;
+  border-right: 1px solid var(--color-border);
+}
+
+.feature-item:last-child {
+  border-right: none;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,200,150,0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.4rem;
+}
+
+.feature-item h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.feature-item p  { font-size: 0.875rem; margin-bottom: 0; }
+
+
+/* =============================================
+   PRODUCT CARDS
+   White cards with image on top, text below.
+   flex-wrap makes them wrap to a new row on
+   smaller screens automatically.
+   ============================================= */
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.product-card {
+  flex: 1 1 220px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+/* object-fit: cover crops the image to fill the box without stretching */
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card-body {
+  padding: 1.25rem;
+}
+
+.product-card-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-black);
+  margin-bottom: 0.3rem;
+}
+
+.product-card-desc {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Price and button on the same line */
+.product-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+
+/* =============================================
+   TRUST BAR — dark strip with small badges
+   ============================================= */
+.trust-bar {
+  background-color: var(--color-black);
+  padding: 1.25rem 0;
+}
+
+.trust-items {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trust-item span { color: var(--color-green); }
+
+
+/* =============================================
+   PAGE HERO (About / Products / Contact pages)
+   Dark top section on inner pages
+   ============================================= */
+.page-hero {
+  background-color: var(--color-black);
+  padding: 5rem 0 4rem;
+}
+
+.page-hero h1 {
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  max-width: 18ch;
+}
+
+.page-hero p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.05rem;
+  max-width: 50ch;
+  margin-bottom: 0;
+}
+
+
+/* =============================================
+   ABOUT PAGE — STORY (image + text side by side)
+   ============================================= */
+.story-grid {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.story-image {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text h2 { margin-bottom: 1rem; }
+
+
+/* =============================================
+   ABOUT PAGE — STATS ROW
+   ============================================= */
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.stat { flex: 1; }
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-green);
+}
+
+.stat p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0;
+}
+
+
+/* =============================================
+   ABOUT PAGE — VALUES CARDS
+   ============================================= */
+.values-grid {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.value-card {
+  flex: 1;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.value-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-green);
+  margin-bottom: 0.75rem;
+}
+
+.value-card h3 { margin-bottom: 0.5rem; }
+.value-card p  { font-size: 0.875rem; margin-bottom: 0; }
+
+
+/* =============================================
+   ABOUT PAGE — TEAM CARD
+   Single centred card for Malebo
+   ============================================= */
+.team-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 400px;
+  text-align: center;
+}
+
+.team-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  background-color: #1A1A2E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.team-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-black);
+  margin-bottom: 0.2rem;
+}
+
+.team-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 0.75rem;
+}
+
+.team-bio {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+
+/* =============================================
+   PRODUCTS PAGE — SPECS LIST
+   CSS adds a green tick before each list item
+   ============================================= */
+.specs-list {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0;
+}
+
+.specs-list li {
+  font-size: 0.8rem;
+  color: var(--color-grey);
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.specs-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-green);
+  font-weight: 700;
+}
+
+.product-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background-color: rgba(0,200,150,0.12);
+  color: #007A5E;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+
+
+/* =============================================
+   CONTACT PAGE — TWO COLUMN LAYOUT
+   ============================================= */
+.contact-grid {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.contact-info { flex: 1; }
+.contact-info h2 { margin-bottom: 0.75rem; }
+.contact-info > p { margin-bottom: 2rem; }
+
+.contact-detail {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background-color: rgba(0,200,150,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--color-black);
+}
+
+
+/* =============================================
+   CONTACT PAGE — FORM
+   ============================================= */
+.contact-form {
+  flex: 1.4;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.contact-form h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.75rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-black);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-black);
+  background-color: var(--color-offwhite);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+/* Green glow when a field is focused */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(0,200,150,0.15);
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Two inputs side by side */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group { flex: 1; }
+
+.form-submit {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+
+/* =============================================
+   CTA BANNER
+   ============================================= */
+.cta-banner {
+  background-color: var(--color-black);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.cta-banner h2 { color: var(--color-white); margin-bottom: 0.75rem; }
+.cta-banner p  { color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+
+
+/* =============================================
+   RESPONSIVE — TABLET (768px and below)
+   Switch multi-column layouts to single column
+   ============================================= */
+@media (max-width: 768px) {
+
+  .nav-links { display: none; }
+
+  .features-grid    { flex-direction: column; }
+  .feature-item     { border-right: none; border-bottom: 1px solid var(--color-border); }
+
+  .story-grid       { flex-direction: column; gap: 2rem; }
+  .story-image      { min-height: 260px; width: 100%; }
+
+  .values-grid      { flex-direction: column; }
+  .footer-columns   { flex-direction: column; gap: 2rem; }
+  .contact-grid     { flex-direction: column; gap: 2rem; }
+}
+
+
+/* =============================================
+   RESPONSIVE — MOBILE (480px and below)
+   ============================================= */
+@media (max-width: 480px) {
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+
+  .hero-buttons     { flex-direction: column; }
+  .product-card     { flex: 1 1 100%; }
+  .trust-items      { gap: 1rem; }
+  .form-row         { flex-direction: column; }
+  .contact-form     { padding: 1.5rem; }
+}
